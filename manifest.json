@@ -1,0 +1,15 @@
+{
+	"app": {
+		"title": "MathScrambler",
+		"version": "0.2.2",
+		"runtime": "executable",
+		"server": "127.0.0.1:7000",
+		"description": "Helpful Math Hints",
+		"appModule": "UNUSED",
+		"coverArt": "cover.png",
+	    "requiredSiftCount" : 6,
+	    "soundsPath": "assets/sounds",
+	    "imagesPath": "assets/images"
+	}
+
+}

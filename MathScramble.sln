@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathScramble", "MathScramble\MathScramble.csproj", "{CD15FB14-E116-40DD-BBB1-690BCF7247FA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CD15FB14-E116-40DD-BBB1-690BCF7247FA}.Debug|x86.ActiveCfg = Debug|x86
+		{CD15FB14-E116-40DD-BBB1-690BCF7247FA}.Debug|x86.Build.0 = Debug|x86
+		{CD15FB14-E116-40DD-BBB1-690BCF7247FA}.Release|x86.ActiveCfg = Release|x86
+		{CD15FB14-E116-40DD-BBB1-690BCF7247FA}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = MathScramble\MathScramble.csproj
+		Policies = $0
+		$0.StandardHeader = $1
+		$1.Text = @${FileName}\n\nCopyright (c) ${Year} Montclair State University\n\nContributors:  ${AuthorName} <${AuthorEmail}>\n\nPermission is hereby granted, free of charge, to any person obtaining \na copy of this software and associated documentation files (the "Software"),\nto deal in the Software without restriction, including without limitation\nthe rights to use, copy, modify, merge, publish, distribute, sublicense, \nand/or sell copies of the Software, and to permit persons to whom the \nSoftware is furnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in \nall copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, \nEXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF \nMERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.\nIN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR \nANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF \nCONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION \nWITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+		$1.IncludeInNewFiles = True
+		$0.VersionControlPolicy = $2
+		$2.inheritsSet = Mono
+		$0.ChangeLogPolicy = $3
+		$3.VcsIntegration = RequireEntry
+		$3.MessageStyle = $4
+		$4.LineAlign = 0
+		$3.inheritsSet = Mono
+		$0.DotNetNamingPolicy = $5
+		$5.DirectoryNamespaceAssociation = None
+		$5.ResourceNamePolicy = FileFormatDefault
+		version = 0.2
+	EndGlobalSection
+EndGlobal
