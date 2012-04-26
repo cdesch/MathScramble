@@ -47,7 +47,13 @@ namespace MathScramble
 			Log.Debug ("DominoPainter {0}", number);
 			mCube = cube;
 			//System.Drawing.Color.FromArgb (color.Data);
-			mRectColor = new Sifteo.Color ((int)color.ToArgb ());
+			//String rtn = String.Empty;
+
+			//rtn = "#" + color.R.ToString ("X2") + color.G.ToString ("X2") + color.B.ToString ("X2");
+			//rtn = "RGB(" + color.R.ToString () + "," + color.G.ToString () + "," + color.B.ToString () + ")";
+			//Log.Debug (rtn);
+			mRectColor = new Sifteo.Color (Convert.ToInt32 (color.R.ToString ()), Convert.ToInt32 (color.G.ToString ()), Convert.ToInt32 (color.B.ToString ()));
+			//mRectColor = new Sifteo.Color (Convert.ToInt32 (color.R.ToString ("X2")), Convert.ToInt32 (color.G.ToString ("X2")), Convert.ToInt32 (color.B.ToString ("X2")));
 			
 			switch (number) {
 			case 1:
@@ -97,7 +103,8 @@ namespace MathScramble
 		{
 			Log.Debug ("DominoPainter {0}", number);
 			mCube = cube;
-			mRectColor = new Sifteo.Color (color.ToArgb ());
+			mRectColor = new Sifteo.Color (Convert.ToInt32 (color.R.ToString ()), Convert.ToInt32 (color.G.ToString ()), Convert.ToInt32 (color.B.ToString ()));
+			
 			Cube.Side mSide = side;
 			
 
@@ -394,13 +401,7 @@ namespace MathScramble
 		{
 				
 			mCube.FillRect (mRectColor, x + xOffset, y, h, w);
-				
-
-			
-			
-			
-			//mCube.Paint ();
-		
+						
 		}
 		
 		private void two (Cube.Side side)
