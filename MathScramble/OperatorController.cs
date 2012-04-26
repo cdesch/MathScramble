@@ -122,7 +122,7 @@ namespace MathScramble
 			}
 			
 			mCube.FillScreen (bgColor);
-			StringPainter painter = new StringPainter (mCube, operatorString, System.Drawing.Color.Black, 50);
+			StringPainter painter = new StringPainter (mCube, operatorString, mWrapper.mColor, mWrapper.mSize);
 			painter = null;
 			
 			mCube.Paint ();

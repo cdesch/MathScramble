@@ -71,14 +71,13 @@ namespace MathScramble
 
 			//Init Cube roles
 			cubeStates = new CubeRole[6];
-			cubeStates [0] = new CubeRole (Constants.HintState, Constants.tTitleToHintState, -1, -1);
-			cubeStates [1] = new CubeRole (Constants.OperandState, Constants.tTitleToOperandState, Constants.kOperandMin, Constants.kOperandMax);
-			cubeStates [2] = new CubeRole (Constants.OperatorState, Constants.tTitleToOperatorState, Constants.kOperatorMin, Constants.kOperatorMax);
-			cubeStates [3] = new CubeRole (Constants.OperandState, Constants.tTitleToOperandState, Constants.kOperandMin, Constants.kOperandMax);
-			cubeStates [4] = new CubeRole (Constants.ResultState, Constants.tTitleToResultState, 5, 5);
-			cubeStates [5] = new CubeRole (Constants.OperandState, Constants.tTitleToOperandState, Constants.kOperandMin, Constants.kOperandMax);
+			cubeStates [0] = new CubeRole (Constants.HintState, Constants.tTitleToHintState, -1, -1, System.Drawing.Color.Black);
+			cubeStates [1] = new CubeRole (Constants.OperandState, Constants.tTitleToOperandState, Constants.kOperandMin, Constants.kOperandMax, System.Drawing.Color.Orange);
+			cubeStates [2] = new CubeRole (Constants.OperatorState, Constants.tTitleToOperatorState, Constants.kOperatorMin, Constants.kOperatorMax, System.Drawing.Color.Black);
+			cubeStates [3] = new CubeRole (Constants.OperandState, Constants.tTitleToOperandState, Constants.kOperandMin, Constants.kOperandMax, System.Drawing.Color.Red);
+			cubeStates [4] = new CubeRole (Constants.ResultState, Constants.tTitleToResultState, 5, 5, System.Drawing.Color.Blue);
+			cubeStates [5] = new CubeRole (Constants.OperandState, Constants.tTitleToOperandState, Constants.kOperandMin, Constants.kOperandMax, System.Drawing.Color.Green);
 
-			
 			// Loop through all the cubes and set them up.
 			lastIndex = 1;
 			foreach (Cube cube in CubeSet) {
@@ -411,6 +410,8 @@ namespace MathScramble
 		private HintController 		hintController;
 		private ResultController 	resultController;
 		public int mValue;
+		public System.Drawing.Color mColor;
+		public float mSize;
 
 		// This flag tells the wrapper to redraw the current image on the cube. (See Tick, below).
 		public bool mCubeSelected = false; //Was selected by the user on this tick
@@ -435,11 +436,16 @@ namespace MathScramble
 			mCube.ShakeStartedEvent += HandleMCubeShakeStartedEvent;
 			
 			
+			
+			
 			//Init the State Machine
 			mRole = mApp.cubeStates [seq - 1];			
 			InitStateMachine ();		
-
+			
+			//
 			mValue = mRole.GenerateValue ();
+			mColor = mRole.mColor;
+			mSize = mRole.mSize;
 			
 			/*
 			if (mCubeStateMachine.Current == Constants.HintState) {
@@ -448,6 +454,7 @@ namespace MathScramble
 			}*/
 			
 			//
+			
 			
 		}
 		

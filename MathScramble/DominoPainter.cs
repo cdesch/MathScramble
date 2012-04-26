@@ -31,7 +31,7 @@ namespace MathScramble
 	{
 		
 		private Cube mCube;
-		private Color mRectColor = Constants.BlueColor;
+		private Sifteo.Color  mRectColor;
 		private int x, y;	//Center of Drawing for sided hints //Starting point
 		private int xVal, yVal;
 		private int xOffset, yOffset;
@@ -42,10 +42,12 @@ namespace MathScramble
 		/*
 		 * Consturctor
 		 */
-		public DominoPainter (Cube cube, int number)
+		public DominoPainter (Cube cube, int number, System.Drawing.Color color)
 		{
 			Log.Debug ("DominoPainter {0}", number);
 			mCube = cube;
+			//System.Drawing.Color.FromArgb (color.Data);
+			mRectColor = new Sifteo.Color ((int)color.ToArgb ());
 			
 			switch (number) {
 			case 1:
@@ -91,11 +93,11 @@ namespace MathScramble
 		/*
 		 * Constructor with Side
 		 */ 
-		public DominoPainter (Cube cube, int number, Cube.Side side)
+		public DominoPainter (Cube cube, int number, Cube.Side side, System.Drawing.Color color)
 		{
 			Log.Debug ("DominoPainter {0}", number);
 			mCube = cube;
-			
+			mRectColor = new Sifteo.Color (color.ToArgb ());
 			Cube.Side mSide = side;
 			
 

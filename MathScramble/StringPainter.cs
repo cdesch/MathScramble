@@ -37,7 +37,7 @@ namespace MathScramble
 		Dictionary<String, CubeImageHelper> imageHelperLookup;
 		private System.Drawing.Color fontColor;
 		private Sifteo.Color bgColor = Sifteo.Color.White;
-		private int fontSize;
+		private float fontSize;
 		/*
 		 * Constructor
 		 */ 
@@ -47,7 +47,11 @@ namespace MathScramble
 			mCube = cube;
 		
 			fontSize = 50;
-			fontColor = System.Drawing.Color.Black;
+			
+			
+			Sifteo.Color myColor = Sifteo.Color.Black;
+			fontColor = System.Drawing.Color.FromArgb (myColor.Data);
+			
 			writeWord (label, mCube);
 			
 				
@@ -55,12 +59,13 @@ namespace MathScramble
 		/*
 		 * Constructor with color and size
 		 */ 
-		public StringPainter (Cube cube, String label, System.Drawing.Color color, int size)
+		public StringPainter (Cube cube, String label, System.Drawing.Color color, float size)
 		{
 			Log.Debug ("StringPainter {0}", label);
 			mCube = cube;
 			
 			fontSize = size;
+			//fontColor = System.Drawing.Color.FromArgb (color.Data);
 			fontColor = color;
 			writeWord (label, mCube);
 				

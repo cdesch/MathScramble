@@ -67,8 +67,8 @@ namespace MathScramble
 			//Paint Background
 			
 			mCube.FillScreen (bgColor);
-			StringPainter painter = new StringPainter (mCube, mWrapper.mValue.ToString ());
-			painter = null;	//Free the resource
+			StringPainter painter = new StringPainter (mCube, mWrapper.mValue.ToString (), mWrapper.mColor, mWrapper.mSize);
+			painter = null;	//Free the resource 
 			
 			mCube.Paint ();
 			

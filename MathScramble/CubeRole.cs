@@ -23,6 +23,7 @@
 // CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION 
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 using System;
+using System.Drawing;
 
 namespace MathScramble
 {
@@ -32,15 +33,28 @@ namespace MathScramble
 		public String stateTransition;
 		public int maxVal;
 		public int minVal;
+		public System.Drawing.Color mColor;
+		public float mSize;
 		
-		public CubeRole (String name, String transition, int min, int max)
+		public CubeRole (String name, String transition, int min, int max, System.Drawing.Color color)
 		{
 			stateName = name;
 			stateTransition = transition;
 			maxVal = max;
 			minVal = min;
+			mColor = color;
+			mSize = 20.0f;
 		}
 		
+		public CubeRole (String name, String transition, int min, int max, System.Drawing.Color color, float size)
+		{
+			stateName = name;
+			stateTransition = transition;
+			maxVal = max;
+			minVal = min;
+			mColor = color;
+			mSize = size;
+		}
 		/*
 		 *  Generate the Operand Value
 		 */

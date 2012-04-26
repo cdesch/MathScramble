@@ -36,6 +36,7 @@ namespace MathScramble
 		CubeWrapper mWrapper;
 		Color bgColor = Color.White;
 		Cube lastNeighbor;
+		Color separatorColor = Color.Black;
 		
 		public HintController (Cube cube)
 		{
@@ -54,7 +55,7 @@ namespace MathScramble
 		{
 			Log.Debug (classname + " OnSetup");
 			mCube.FillScreen (bgColor);
-			StringPainter painter = new StringPainter (mCube, "Hint", System.Drawing.Color.White, 24);
+			StringPainter painter = new StringPainter (mCube, "Hint", mWrapper.mColor, 24);
 			mCube.Paint ();
 		}
 		
@@ -96,7 +97,7 @@ namespace MathScramble
 			if (connected.Length == 1) {
 				//Draw the default state
 				mCube.FillScreen (bgColor);
-				StringPainter painter = new StringPainter (mCube, "Hint", System.Drawing.Color.Blue, 24);
+				StringPainter painter = new StringPainter (mCube, "Hint", mWrapper.mColor, 24);
 				painter = null;	//Free the resource
 				
 				lastNeighbor = null;
@@ -190,8 +191,9 @@ namespace MathScramble
 						//Log.Debug ("side of Operator: " + cube.Neighbors.SideOf (neighbor).ToString () + " num: " + neighborWrapper.mValue.ToString ());
 						CubeWrapper wrapper = (CubeWrapper)neighbor.userData;
 						//Paint that side of the cube //TODO: get the relative side to the hint cube. 
-						DominoPainter painter = new DominoPainter (mCube, wrapper.mValue, cube.Neighbors.SideOf (neighbor));
-						painter = null;
+						DominoPainter painter = new DominoPainter (mCube, wrapper.mValue, cube.Neighbors.SideOf (neighbor), neighborWrapper.mColor);
+				
+						painter = null; //Release Resource //TODO: I don't think this works like it does in Objective-C -- Need to follow up on that
 						
 					} else {
 						//Do nothing
@@ -241,13 +243,13 @@ namespace MathScramble
 		
 		public void PaintDomino (CubeWrapper wrapper)
 		{
-			DominoPainter painter = new DominoPainter (mCube, wrapper.mValue);
+			DominoPainter painter = new DominoPainter (mCube, wrapper.mValue, wrapper.mColor);
 			painter = null;
 		}
 		
 		public void PaintDomino (CubeWrapper wrapper, int operandVal)
 		{
-			DominoPainter painter = new DominoPainter (mCube, operandVal);
+			DominoPainter painter = new DominoPainter (mCube, operandVal, wrapper.mColor);
 			painter = null;
 		}
 		
@@ -257,12 +259,12 @@ namespace MathScramble
 		{
 			//From top left to bottom right
 			for (int i = 0; i< Cube.SCREEN_WIDTH; i += 2) {
-				mCube.FillRect (Constants.RedColor, i, i, 2, 2);
+				mCube.FillRect (separatorColor, i, i, 2, 2);
 			}
 			
 			int x = 126;
 			for (int i = 0; i< Cube.SCREEN_WIDTH; i += 2) {
-				mCube.FillRect (Constants.RedColor, x, i, 2, 2);
+				mCube.FillRect (separatorColor, x, i, 2, 2);
 				x -= 2;
 			}
 			
@@ -271,14 +273,14 @@ namespace MathScramble
 		private void DrawVerticleSeparator ()
 		{
 			int width = 4;
-			mCube.FillRect (Constants.RedColor, (Cube.SCREEN_WIDTH / 2) - width, 0, width, Cube.SCREEN_MAX_Y);
+			mCube.FillRect (separatorColor, (Cube.SCREEN_WIDTH / 2) - width, 0, width, Cube.SCREEN_MAX_Y);
 			
 		}
 		
 		private void DrawHorizontalSeparator ()
 		{
 			int width = 4;
-			mCube.FillRect (Constants.RedColor, 0, (Cube.SCREEN_WIDTH / 2) - width, Cube.SCREEN_MAX_X, width);
+			mCube.FillRect (separatorColor, 0, (Cube.SCREEN_WIDTH / 2) - width, Cube.SCREEN_MAX_X, width);
 			
 		}
 		

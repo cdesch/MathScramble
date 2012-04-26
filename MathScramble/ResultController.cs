@@ -162,10 +162,10 @@ namespace MathScramble
 			Cube[] connected = CubeHelper.FindConnected (mCube);		//Get all the connected cubes
 			
 			if (connected.Length == 1) {
-				StringPainter painter = new StringPainter (mCube, "=? ");	
+				StringPainter painter = new StringPainter (mCube, "=? ", mWrapper.mColor, mWrapper.mSize);	
 				painter = null;	//Free the resource
 			} else {
-				StringPainter painter = new StringPainter (mCube, "=" + result.ToString ());	
+				StringPainter painter = new StringPainter (mCube, "=" + result.ToString (), mWrapper.mColor, mWrapper.mSize);	
 				painter = null;	//Free the resource
 			}
 			
@@ -178,7 +178,6 @@ namespace MathScramble
 				painter = null;	//Free the resource
 			}*/
 		
-			
 			mCube.Paint ();
 			
 		}
